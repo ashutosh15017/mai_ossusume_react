@@ -87,7 +87,7 @@ function LargeCard(props: {
                       display: "-webkit-box",
                       overflow: "hidden",
                       WebkitBoxOrient: "vertical",
-                      WebkitLineClamp: 2,
+                      WebkitLineClamp: 3,
                       textAlign: "left",
                     }}
                   >

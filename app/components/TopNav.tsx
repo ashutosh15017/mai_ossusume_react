@@ -44,9 +44,9 @@ function TopNav(props: { user: any }) {
 
   return (
     <>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
+      <AppBar position="static" sx={{ width: "100%" }}>
+        <Container maxWidth="xl" sx={{ width: "100%" }}>
+          <Toolbar disableGutters sx={{ width: "100%" }}>
             <SmartToyIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
             <NextLink href="/">
               <Typography
