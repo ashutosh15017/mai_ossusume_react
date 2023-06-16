@@ -39,6 +39,8 @@ function ItemGrid(props: any) {
                 isDeletable={props.isDeletable}
                 setFormSubmitted={props.setFormSubmitted}
                 excludeButtonClick={true}
+                handleImageChange={props.handleImageChange}
+                itemCardData={props.itemCardData}
               />
             </motion.div>
           </Grid>

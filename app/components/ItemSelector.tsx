@@ -28,7 +28,13 @@ function ItemSelector(props: {
   const isLargeScreen = useMediaQuery((theme: any) =>
     theme.breakpoints.up("lg")
   );
-
+  const [itemCardData, setItemCardData] = useState({});
+  const handleImageChange = (itemId:any, newImageData:any) => {
+    setItemCardData((prevData) => ({
+      ...prevData,
+      [itemId]: newImageData,
+    }));
+  };
   return (
     <>
       {isModalOpen ? (
@@ -39,6 +45,8 @@ function ItemSelector(props: {
               handleCardClick={handleCardClick}
               isDeletable={isDeletable}
               setFormSubmitted={setFormSubmitted}
+              handleImageChange={handleImageChange}
+              itemCardData={itemCardData}
             />
             <Dialog
               open={isModalOpen}
@@ -75,6 +83,8 @@ function ItemSelector(props: {
           handleCardClick={handleCardClick}
           isDeletable={isDeletable}
           setFormSubmitted={setFormSubmitted}
+          handleImageChange={handleImageChange}
+          itemCardData={itemCardData}
         />
       )}
     </>

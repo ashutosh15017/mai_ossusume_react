@@ -23,8 +23,10 @@ function ItemCard(props: {
   location : string;
   place_id: string;
   handleCloseModal : any;
+  handleImageChange : any;
+  itemCardData : any;
 }) {
-  const [imageUrl, setImageUrl] = useState<string>();
+  
   const [imageTransparency, setImageTransparency] = useState(1);
   const {
     title,
@@ -43,22 +45,27 @@ function ItemCard(props: {
     user_name,
     location,
     place_id,
-    handleCloseModal
+    handleCloseModal,
+    handleImageChange,
+    itemCardData
   } = props;
+
+  const imageState = itemCardData[image_link] || null;
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const sessionImage = sessionStorage.getItem(image_link);
-        if (sessionImage) {
-          setImageUrl(sessionImage);
-        }
-        if (!imageUrl && !sessionImage) {
-          console.log("image being fetched");
+        if (!imageState) {
+          const sessionImage = sessionStorage.getItem(image_link);
+          if (sessionImage) {
+            console.log("image being fetched from session");
+            handleImageChange(sessionImage);
+          }
+          console.log("image being fetched from firebase");
           const imageRef = ref(storage, image_link);
           const url = await getDownloadURL(imageRef);
-          setImageUrl(url);
           sessionStorage.setItem(image_link, url);
+          handleImageChange(image_link,url)
         }
       } catch (error) {
         console.error("Error fetching image from Firebase Storage:", error);
@@ -66,7 +73,7 @@ function ItemCard(props: {
     };
 
     fetchImage();
-  }, [imageUrl, image_link]);
+  }, [image_link]);
 
   function handleDeletePost(event: any): void {
     if (excludeButtonClick) {
@@ -102,7 +109,7 @@ function ItemCard(props: {
           description={description}
           rating={rating}
           type={type}
-          imageUrl={!imageUrl ? "/image_not_found.jpg" : imageUrl}
+          imageUrl={!imageState ? "/image_not_found.jpg" : imageState}
           isDeletable={isDeletable}
           imageTransparency={imageTransparency}
           handleDeletePost={handleDeletePost}
@@ -116,7 +123,7 @@ function ItemCard(props: {
             rating={rating}
             type={type}
             isDeletable={false}
-            imageUrl={!imageUrl ? "/image_not_found.jpg" : imageUrl}
+            imageUrl={!imageState ? "/image_not_found.jpg" : imageState}
             time_stamp = {time_stamp}
             user_image = {user_image}
             user_name = {user_name}
