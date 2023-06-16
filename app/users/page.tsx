@@ -6,7 +6,7 @@ import UserListPage from "../components/UserListPage";
 import { useRouter } from "next/navigation";
 
 
-function users() {
+function Users() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -18,7 +18,7 @@ function users() {
     }
     setUser(storedUser);
     setIsLoading(false);
-  }, []);
+  }, [router]);
   return (
     <>
       {isLoading ? (
@@ -37,4 +37,4 @@ function users() {
   );
 }
 
-export default users;
+export default Users;

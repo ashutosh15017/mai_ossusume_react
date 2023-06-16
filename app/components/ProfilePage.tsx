@@ -1,3 +1,4 @@
+"use client"
 import { IconButton } from "@mui/material";
 import { collection, doc, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
@@ -5,7 +6,6 @@ import { db } from "../firebase-config";
 import Dropdown from "./Dropdown";
 import PostForm from "./PostForm";
 import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
-import CancelIcon from "@mui/icons-material/Cancel";
 
 import ItemGrid from "./ItemGrid";
 

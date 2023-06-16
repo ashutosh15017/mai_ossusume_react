@@ -7,7 +7,7 @@ import ProfilePage from "../components/ProfilePage";
 import { useRouter } from "next/navigation";
 import "../styles/globals.css";
 
-function profile() {
+function Profile() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -19,7 +19,7 @@ function profile() {
     }
     setUser(storedUser);
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
@@ -39,4 +39,4 @@ function profile() {
   );
 }
 
-export default profile;
+export default Profile;
