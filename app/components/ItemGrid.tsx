@@ -19,8 +19,9 @@ function ItemGrid(props: {
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedCard(null);
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 100);
   };
 
   const CardAnimation = {
@@ -34,13 +35,13 @@ function ItemGrid(props: {
         container
         spacing={1}
         sx={{
-          paddingLeft: { xs: 3, sm: 3, md: 3, xl:2 },
-          paddingRight: { xs: 3, sm: 3, md: 3, xl:2 },
+          paddingLeft: { xs: 3, sm: 3, md: 3, xl: 2 },
+          paddingRight: { xs: 3, sm: 3, md: 3, xl: 2 },
         }}
       >
         {cards.map((card: any) => {
           return (
-            <Grid key={card.post_id} item xs={12} lg={3} md={3} xl={2}>
+            <Grid key={card.post_id} item xs={12} lg={3} md={3} xl={2} sx={{paddingBottom:1}}>
               <motion.div
                 variants={CardAnimation}
                 initial="initial"
@@ -63,6 +64,8 @@ function ItemGrid(props: {
         onClose={handleCloseModal}
         TransitionComponent={Grow}
         scroll="body"
+        maxWidth="xl"
+      
         classes={{ paper: "dialogContainer" }}
       >
         {selectedCard && (
