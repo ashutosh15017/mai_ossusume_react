@@ -29,7 +29,7 @@ function ItemSelector(props: {
     theme.breakpoints.up("lg")
   );
   const [itemCardData, setItemCardData] = useState({});
-  const handleImageChange = (itemId:any, newImageData:any) => {
+  const handleImageChange = (itemId: any, newImageData: any) => {
     setItemCardData((prevData) => ({
       ...prevData,
       [itemId]: newImageData,
@@ -62,6 +62,8 @@ function ItemSelector(props: {
                     isLargeCard={true}
                     handleCloseModal={handleCloseModal}
                     sx={{ flex: 1 }}
+                    handleImageChange={handleImageChange}
+                    itemCardData={itemCardData}
                   />
                 </div>
               )}
@@ -74,6 +76,8 @@ function ItemSelector(props: {
               isLargeCard={true}
               sx={{ flex: 1 }}
               handleCloseModal={handleCloseModal}
+              handleImageChange={handleImageChange}
+              itemCardData={itemCardData}
             />
           </>
         )
