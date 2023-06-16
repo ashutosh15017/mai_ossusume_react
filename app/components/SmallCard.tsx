@@ -84,7 +84,7 @@ function SmallCard(props: {
                   minWidth: 0,
                 }}
               >
-                {title.length > 15 ? `${title.substring(0, 15)}..` : title}
+                {title.length > 30 ? `${title.substring(0, 30)}..` : title}
               </Typography>
               <div
                 style={{

@@ -41,7 +41,15 @@ function ItemGrid(props: {
       >
         {cards.map((card: any) => {
           return (
-            <Grid key={card.post_id} item xs={12} lg={3} md={3} xl={2} sx={{paddingBottom:1}}>
+            <Grid
+              key={card.post_id}
+              item
+              xs={12}
+              lg={3}
+              md={3}
+              xl={2}
+              sx={{ paddingBottom: 1 }}
+            >
               <motion.div
                 variants={CardAnimation}
                 initial="initial"
@@ -59,21 +67,22 @@ function ItemGrid(props: {
           );
         })}
       </Grid>
-      <Dialog
-        open={isModalOpen}
-        onClose={handleCloseModal}
-        TransitionComponent={Grow}
-        scroll="body"
-        maxWidth="xl"
-      
-        classes={{ paper: "dialogContainer" }}
-      >
-        {selectedCard && (
-          <div className="dialogContent">
-            <ItemCard {...selectedCard} isLargeCard={true} sx={{ flex: 1 }} />
-          </div>
-        )}
-      </Dialog>
+      <div style={{ height: "100vh", overflow: "auto" }}>
+        <Dialog
+          open={isModalOpen}
+          onClose={handleCloseModal}
+          TransitionComponent={Grow}
+          scroll="body"
+          maxWidth="xl"
+          classes={{ paper: "dialogContainer" }}
+        >
+          {selectedCard && (
+            <div className="dialogContent">
+              <ItemCard {...selectedCard} isLargeCard={true} sx={{ flex: 1 }} />
+            </div>
+          )}
+        </Dialog>
+      </div>
     </>
   );
 }
