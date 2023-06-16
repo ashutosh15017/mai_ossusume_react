@@ -48,18 +48,14 @@ function LargeCard(props: {
     const url = `https://www.google.com/maps/search/?api=1&query=${encodedLocationName}`;
     window.open(url);
   };
-
-  const cardRef = useRef<any>(null);
-
+  const reference = useRef<any>(null);
   useEffect(() => {
-    if (cardRef.current) {
-      cardRef.current.focus();
-    }
+    reference.current.focus();
   }, []);
 
   return (
     <>
-      <div ref={cardRef} tabIndex={0} autoFocus>
+      <div style={{ outline: "none" }}>
         <Card
           sx={{
             height: "100%",
@@ -94,7 +90,7 @@ function LargeCard(props: {
                 flexWrap: "wrap",
               }}
             >
-              <div style={{ flexBasis: "100%" }}>
+              <div style={{ flexBasis: "100%" }} ref={reference}>
                 {location ? (
                   <button onClick={handleOpenInGoogleMaps}>
                     <Typography
