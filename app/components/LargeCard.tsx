@@ -72,41 +72,80 @@ function LargeCard(props: {
               justifyContent: "space-between",
               alignItems: "center",
               marginRight: "10px",
+              flexWrap: "wrap",
             }}
           >
-            {location ? (
-            <button onClick={handleOpenInGoogleMaps}>
-              <Typography gutterBottom variant="h4" component="div">
-                {title}
-                <PlaceIcon
-                  sx={{ minHeight: 30, minWidth: 30, marginBottom: 0.5 }}
+            <div style={{ flexBasis: "100%" }}>
+              {location ? (
+                <button onClick={handleOpenInGoogleMaps}>
+                  <Typography
+                    gutterBottom
+                    variant="h4"
+                    component="div"
+                    sx={{
+                      wordBreak: "break-word",
+                      display: "-webkit-box",
+                      overflow: "hidden",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 2,
+                      textAlign: "left",
+                    }}
+                  >
+                    {title}
+                    <PlaceIcon
+                      sx={{ minHeight: 30, minWidth: 30, marginBottom: 0.5 }}
+                    />
+                  </Typography>
+                </button>
+              ) : (
+                <Typography
+                  gutterBottom
+                  variant="h4"
+                  component="div"
+                  sx={{
+                    wordBreak: "break-word",
+                    display: "-webkit-box",
+                    overflow: "hidden",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 2,
+                    textAlign: "left",
+                  }}
+                >
+                  {title}
+                </Typography>
+              )}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "10px",
+                justifyContent: "flex-start",
+              }}
+            >
+              <div>
+                <Chip
+                  sx={{
+                    fontSize: "14px",
+                    color: "primary",
+                    marginBottom: "10px",
+                  }}
+                  label={type === "all" ? "NO TYPE" : type.toUpperCase()}
                 />
-              </Typography>
-            </button>
-            ) : (
-            <Typography gutterBottom variant="h4" component="div">
-              {title}
-            </Typography>
-            )}
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <Chip
-                sx={{
-                  fontSize: "14px",
-                  color: "primary",
-                  marginLeft: "10px",
-                  marginBottom: "10px",
-                }}
-                label={type === "all" ? "NO TYPE" : type.toUpperCase()}
-              />
-              <Chip
-                sx={{
-                  fontSize: "14px",
-                  color: "primary",
-                  marginLeft: "10px",
-                  marginBottom: "10px",
-                }}
-                label={new Date(time_stamp).toLocaleDateString()}
-              />
+              </div>
+              <div>
+                <Chip
+                  sx={{
+                    fontSize: "14px",
+                    color: "primary",
+                    marginBottom: "10px",
+                  }}
+                  label={new Date(time_stamp).toLocaleDateString()}
+                />
+              </div>
+            </div>
+            <div>
               <Tooltip title={user_name} placement="top">
                 <Avatar
                   src={!user_image ? "/image_not_found.jpg" : user_image}
@@ -114,14 +153,15 @@ function LargeCard(props: {
                   sx={{
                     width: 50,
                     height: 50,
-                    marginLeft: "10px",
                     marginBottom: "10px",
                     cursor: "pointer",
+                    marginLeft: 1,
                   }}
                 />
               </Tooltip>
             </div>
           </div>
+
           <Box
             sx={{
               height: "200px",
@@ -136,6 +176,10 @@ function LargeCard(props: {
               color="text.secondary"
               component="div"
               fontSize={18}
+              sx={{
+                flex: "0 1 auto",
+                wordBreak: "break-word",
+              }}
             >
               {description}
             </Typography>

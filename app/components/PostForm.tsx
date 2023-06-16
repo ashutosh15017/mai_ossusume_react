@@ -169,7 +169,7 @@ function PostForm(props: {
                   fullWidth
                   required
                   inputProps={{
-                    maxLength: 100,
+                    maxLength: 30,
                   }}
                   {...register("title")}
                 />

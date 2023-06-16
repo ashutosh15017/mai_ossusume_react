@@ -70,11 +70,21 @@ function SmallCard(props: {
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "center",
+                alignItems: "flex-start", 
               }}
             >
-              <Typography gutterBottom variant="h5" component="div">
-                {title}
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{
+                  marginRight: "8px",
+                  flex: "0 1 auto",
+                  wordBreak: "break-word",
+                  minWidth: 0,
+                }}
+              >
+                {title.length > 15 ? `${title.substring(0, 15)}..` : title}
               </Typography>
               <div
                 style={{
@@ -85,14 +95,13 @@ function SmallCard(props: {
               >
                 <Chip
                   sx={{
-                    fontSize: "14px",
+                    fontSize: "12px",
                     color: "primary",
                     mb: 1,
-                    mr: 1,
                   }}
                   label={type === "all" ? "NO TYPE" : type.toUpperCase()}
                 />
-               
+
                 {/* Another chip can go here  */}
               </div>
             </div>
@@ -105,6 +114,8 @@ function SmallCard(props: {
                 overflow: "hidden",
                 WebkitBoxOrient: "vertical",
                 WebkitLineClamp: 3,
+                flex: "0 1 auto",
+                wordBreak: "break-word",
               }}
             >
               {description}

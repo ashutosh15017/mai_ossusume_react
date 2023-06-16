@@ -30,7 +30,7 @@ function ItemGrid(props: {
 
   return (
     <>
-      <Grid container spacing={2} sx={{ paddingLeft: 2, paddingRight: 2 }}>
+      <Grid container spacing={1} sx={{ paddingLeft: 2, paddingRight: 2 }}>
         {cards.map((card: any) => {
           return (
             <Grid key={card.post_id} item xs={6} lg={3} md={3} xl={2}>
