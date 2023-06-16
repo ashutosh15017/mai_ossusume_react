@@ -46,7 +46,10 @@ function TopNav(props: { user: any }) {
     <>
       <AppBar position="static" sx={{ width: "100%" }}>
         <Container maxWidth="xl" sx={{ width: "100%" }}>
-          <Toolbar disableGutters sx={{ width: "100%" }}>
+          <Toolbar
+            disableGutters
+            sx={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
             <SmartToyIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
             <NextLink href="/">
               <Typography
@@ -107,27 +110,29 @@ function TopNav(props: { user: any }) {
                 ))}
               </Menu>
             </Box>
-            <SmartToyIcon sx={{ display: { xs: "flex", md: "none" }, ml: 4 }} />
-            <NextLink href="/">
-              <Typography
-                variant="h5"
-                noWrap
-                component="div"
-                sx={{
-                  mr: 9,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                  paddingInline:1
-                }}
-              >
-                MaiOsusume
-              </Typography>
-            </NextLink>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <SmartToyIcon sx={{ display: { xs: "flex", md: "none" } }} />
+              <NextLink href="/">
+                <Typography
+                  variant="h5"
+                  noWrap
+                  component="div"
+                  sx={{
+                    mr: 10,
+                    display: { xs: "flex", md: "none" },
+                    flexGrow: 1,
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".3rem",
+                    color: "inherit",
+                    textDecoration: "none",
+                    paddingInline: 1,
+                  }}
+                >
+                  MaiOsusume
+                </Typography>
+              </NextLink>
+            </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (

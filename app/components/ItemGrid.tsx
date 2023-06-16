@@ -13,8 +13,8 @@ function ItemGrid(props: any) {
       container
       spacing={1}
       sx={{
-        paddingLeft: 2,
-        paddingRight: 2,
+        paddingLeft: 1,
+        paddingRight: 1,
       }}
     >
       {props.cards.map((card: any) => {
