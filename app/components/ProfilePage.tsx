@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import { IconButton } from "@mui/material";
 import { collection, doc, getDocs } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { db } from "../firebase-config";
 import Dropdown from "./Dropdown";
 import PostForm from "./PostForm";
 import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
 
-import ItemGrid from "./ItemGrid";
+import ItemSelector from "./ItemSelector";
 
 function ProfilePage(props: any) {
   const [selectedType, setSelectedType] = useState("all");
@@ -73,7 +73,7 @@ function ProfilePage(props: any) {
               mt: 3,
               minHeight: 50,
               minWidth: 50,
-              mr: 2,
+              ml: { xs: 0, sm: 0, md: 3, xl: 2 },
               transition: "transform 0.3s",
               transform: buttonClicked ? "rotate(45deg)" : "none",
             }}
@@ -82,8 +82,9 @@ function ProfilePage(props: any) {
           </IconButton>
         </div>
       </div>
+
       {!buttonClicked && (
-        <ItemGrid
+        <ItemSelector
           cards={cards}
           isDeletable={true}
           setFormSubmitted={setFormSubmitted}

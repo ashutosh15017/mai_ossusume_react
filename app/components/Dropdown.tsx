@@ -12,7 +12,7 @@ function Dropdown({ onSelectChange }: any) {
 
   return (
     <>
-      <div className="p-6">
+      <div className="pt-6 pb-6 pl-2">
         <FormControl sx={{ minWidth: "100%" }} variant="outlined">
           <InputLabel id="select-item">Item Type</InputLabel>
           <Select

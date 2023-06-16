@@ -22,6 +22,7 @@ function ItemCard(props: {
   user_name: string;
   location : string;
   place_id: string;
+  handleCloseModal : any;
 }) {
   const [imageUrl, setImageUrl] = useState<string>();
   const [imageTransparency, setImageTransparency] = useState(1);
@@ -41,7 +42,8 @@ function ItemCard(props: {
     user_image,
     user_name,
     location,
-    place_id
+    place_id,
+    handleCloseModal
   } = props;
 
   useEffect(() => {
@@ -120,6 +122,7 @@ function ItemCard(props: {
             user_name = {user_name}
             location = {location}
             place_id = {place_id}
+            handleCloseModal = {handleCloseModal}
           />
         </>
       )}

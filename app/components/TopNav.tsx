@@ -107,14 +107,14 @@ function TopNav(props: { user: any }) {
                 ))}
               </Menu>
             </Box>
-            <SmartToyIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            <SmartToyIcon sx={{ display: { xs: "flex", md: "none" }, ml: 4 }} />
             <NextLink href="/">
               <Typography
                 variant="h5"
                 noWrap
                 component="div"
                 sx={{
-                  mr: 10,
+                  mr: 9,
                   display: { xs: "flex", md: "none" },
                   flexGrow: 1,
                   fontFamily: "monospace",
@@ -122,6 +122,7 @@ function TopNav(props: { user: any }) {
                   letterSpacing: ".3rem",
                   color: "inherit",
                   textDecoration: "none",
+                  paddingInline:1
                 }}
               >
                 MaiOsusume

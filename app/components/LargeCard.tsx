@@ -12,6 +12,9 @@ import React from "react";
 import ItemRating from "./ItemRating";
 import Box from "@mui/material/Box";
 import PlaceIcon from "@mui/icons-material/Place";
+import StyledIconButton from "../styles/StyledButton";
+import ClearIcon from "@mui/icons-material/Clear";
+
 
 function LargeCard(props: {
   title: string;
@@ -25,6 +28,7 @@ function LargeCard(props: {
   user_name: string;
   location: string;
   place_id: string;
+  handleCloseModal : any;
 }) {
   const {
     title,
@@ -37,6 +41,7 @@ function LargeCard(props: {
     user_name,
     location,
     place_id,
+    handleCloseModal
   } = props;
 
   const handleOpenInGoogleMaps = () => {
@@ -52,6 +57,7 @@ function LargeCard(props: {
           width: "100%",
           display: "flex",
           flexDirection: "column",
+          position: "relative"
         }}
       >
         <CardMedia
@@ -65,6 +71,9 @@ function LargeCard(props: {
           alt="item card"
           placeholder="blur"
         />
+        <StyledIconButton onClick={handleCloseModal}>
+          <ClearIcon />
+        </StyledIconButton>
         <CardContent sx={{ flexGrow: 1 }}>
           <div
             style={{

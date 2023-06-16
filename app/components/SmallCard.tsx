@@ -10,7 +10,8 @@ import {
 
 import StyledIconButton from "../styles/StyledButton";
 import ItemRating from "./ItemRating";
-import ClearIcon from "@mui/icons-material/Clear";
+import RemoveIcon from '@mui/icons-material/Remove';
+
 
 function SmallCard(props: {
   title: string;
@@ -60,7 +61,7 @@ function SmallCard(props: {
           />
           {isDeletable && (
             <StyledIconButton onClick={handleDeletePost}>
-              <ClearIcon />
+              <RemoveIcon />
             </StyledIconButton>
           )}
           <CardContent

@@ -5,7 +5,7 @@ import HomePage from "./components/HomePage";
 import { Button, CircularProgress } from "@mui/material";
 import { signInWithGoogle } from "./firebase-config";
 import { useEffect, useState } from "react";
-import './styles/globals.css'
+import "./styles/globals.css";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -28,7 +28,7 @@ export default function Home() {
           {user ? (
             <>
               <TopNav user={user} />
-              <HomePage user={user}/>
+              <HomePage user={user} />
             </>
           ) : (
             <div className="flex justify-center items-center h-screen ">

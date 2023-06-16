@@ -9,7 +9,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../firebase-config";
-import ItemGrid from "./ItemGrid";
+import ItemSelector from "./ItemSelector";
 
 function HomePage(props: any) {
   //displayed posts
@@ -43,7 +43,7 @@ function HomePage(props: any) {
         where("user_id", "in", userIds),
         where("time_stamp", ">=", Date.now() - DAY_30_FETCH)
       );
-      
+
       const querySnapshot = await getDocs(Fquery);
       console.log("fetching posts from following users");
 
@@ -81,7 +81,7 @@ function HomePage(props: any) {
       <div className="w-full">
         <Dropdown onSelectChange={handleChange} />
       </div>
-      <ItemGrid cards={cards} isDeletable={false} />
+      <ItemSelector cards={cards} isDeletable={false} />
     </>
   );
 }
