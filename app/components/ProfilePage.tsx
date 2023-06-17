@@ -82,24 +82,20 @@ function ProfilePage(props: any) {
           </IconButton>
         </div>
       </div>
-
-      {!buttonClicked && (
+      {!buttonClicked ? (
         <ItemSelector
           cards={cards}
           isDeletable={true}
           setFormSubmitted={setFormSubmitted}
         />
+      ) : (
+        <PostForm
+          type={selectedType}
+          buttonClicked={buttonClicked}
+          setButtonClicked={setButtonClicked}
+          setFormSubmitted={setFormSubmitted}
+        />
       )}
-      <div className="p-1">
-        {buttonClicked && (
-          <PostForm
-            type={selectedType}
-            buttonClicked={buttonClicked}
-            setButtonClicked={setButtonClicked}
-            setFormSubmitted={setFormSubmitted}
-          />
-        )}
-      </div>
     </>
   );
 }
