@@ -33,7 +33,7 @@ function ItemGrid(props: any) {
               variants={CardAnimation}
               initial="initial"
               whileHover="animate"
-              onClick={(event) => props.handleCardClick(card, event)}
+              onClick={() => props.handleCardClick(card)}
             >
               <ItemCard
                 {...card}

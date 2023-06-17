@@ -15,13 +15,9 @@ function ItemSelector(props: {
   const [selectedCard, setSelectedCard] = useState<any>(null);
   const [cardPosition, setCardPosition] = useState({ x: 0, y: 0 });
 
-  const handleCardClick = (card: any, event: any) => {
+  const handleCardClick = (card: any) => {
     setSelectedCard(card);
     setIsModalOpen(true);
-    const rect = event.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    setCardPosition({ x: centerX, y: centerY });
   };
 
   const handleCloseModal = () => {
@@ -80,26 +76,16 @@ function ItemSelector(props: {
           </>
         ) : (
           <>
-            <Grow
-              key={selectedCard.post_id}
-              in={isModalOpen}
-              unmountOnExit
-              style={{
-                transformOrigin: `${cardPosition.x}px ${cardPosition.y}px 0`,
-              }}
-              timeout={300}
-            >
-              <div>
-                <ItemCard
-                  {...selectedCard}
-                  isLargeCard={true}
-                  sx={{ flex: 1 }}
-                  handleCloseModal={handleCloseModal}
-                  handleImageChange={handleImageChange}
-                  itemCardData={itemCardData}
-                />
-              </div>
-            </Grow>
+            <div>
+              <ItemCard
+                {...selectedCard}
+                isLargeCard={true}
+                sx={{ flex: 1 }}
+                handleCloseModal={handleCloseModal}
+                handleImageChange={handleImageChange}
+                itemCardData={itemCardData}
+              />
+            </div>
           </>
         )
       ) : (
