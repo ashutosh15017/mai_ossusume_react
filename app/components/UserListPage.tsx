@@ -142,7 +142,7 @@ function UserListPage(props: any) {
               <Typography
                 paddingLeft={1}
                 gutterBottom
-                variant="subtitle1"
+                variant="h5"
                 component="div"
               >
                 Search User

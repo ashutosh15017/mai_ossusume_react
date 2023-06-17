@@ -25,9 +25,7 @@ function ItemSelector(props: {
   };
 
   const handleCloseModal = () => {
-    setTimeout(() => {
-      setIsModalOpen(false);
-    }, 100);
+    setIsModalOpen(false);
   };
 
   const isLargeScreen = useMediaQuery((theme: any) =>

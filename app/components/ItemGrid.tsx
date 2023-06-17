@@ -24,6 +24,7 @@ function ItemGrid(props: any) {
             key={card.post_id}
             item
             xs={12}
+            sm = {6}
             lg={3}
             md={3}
             xl={2}

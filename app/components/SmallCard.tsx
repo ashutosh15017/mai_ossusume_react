@@ -10,8 +10,7 @@ import {
 
 import StyledIconButton from "../styles/StyledButton";
 import ItemRating from "./ItemRating";
-import RemoveIcon from '@mui/icons-material/Remove';
-
+import RemoveIcon from "@mui/icons-material/Remove";
 
 function SmallCard(props: {
   title: string;
@@ -42,9 +41,12 @@ function SmallCard(props: {
         <Card
           sx={{
             height: 400,
-            maxWidth: 500,
+            maxWidth: 600,
+            display: "flex",
             margin: "1px",
             padding: "1px",
+            flexDirection: "column",
+            position: "relative",
           }}
         >
           <CardMedia
@@ -59,11 +61,13 @@ function SmallCard(props: {
               opacity: imageTransparency,
             }}
           />
+
           {isDeletable && (
-            <StyledIconButton onClick={handleDeletePost}>
+            <StyledIconButton onClick={handleDeletePost} sx={{ margin: 1 }}>
               <RemoveIcon />
             </StyledIconButton>
           )}
+
           <CardContent
             sx={{ display: "flex", flexDirection: "column", height: "40%" }}
           >
@@ -71,7 +75,7 @@ function SmallCard(props: {
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "flex-start", 
+                alignItems: "flex-start",
               }}
             >
               <Typography

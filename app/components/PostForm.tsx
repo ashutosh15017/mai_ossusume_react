@@ -190,7 +190,6 @@ function PostForm(props: {
               <Grid item xs={12}>
                 <TextField
                   margin="normal"
-                  autoFocus
                   fullWidth
                   required
                   rows={5}
