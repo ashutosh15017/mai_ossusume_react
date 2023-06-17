@@ -28,7 +28,7 @@ function Users() {
       ) : (
         user && (
           <>
-            <TopNav user={user} />
+            <TopNav user={user} pathname={"Users"} />
             <UserListPage user={user} />
           </>
         )

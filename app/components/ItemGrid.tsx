@@ -8,6 +8,7 @@ function ItemGrid(props: any) {
     initial: { scale: 1 },
     animate: { scale: 1.02 },
   };
+
   return (
     <Grid
       container
@@ -32,7 +33,7 @@ function ItemGrid(props: any) {
               variants={CardAnimation}
               initial="initial"
               whileHover="animate"
-              onClick={() => props.handleCardClick(card)}
+              onClick={(event) => props.handleCardClick(card, event)}
             >
               <ItemCard
                 {...card}

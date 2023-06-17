@@ -77,7 +77,7 @@ function LargeCard(props: {
             alt="item card"
             placeholder="blur"
           />
-          <StyledIconButton onClick={handleCloseModal}>
+          <StyledIconButton onClick={handleCloseModal} sx={{margin:1}}>
             <ClearIcon />
           </StyledIconButton>
           <CardContent sx={{ flexGrow: 1 }}>
@@ -146,7 +146,7 @@ function LargeCard(props: {
                       color: "primary",
                       marginBottom: "10px",
                     }}
-                    label={type === "all" ? "NO TYPE" : type.toUpperCase()}
+                    label={type === "all" ? "GENERAL" : type.toUpperCase()}
                   />
                 </div>
                 <div>

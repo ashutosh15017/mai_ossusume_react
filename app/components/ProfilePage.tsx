@@ -90,7 +90,7 @@ function ProfilePage(props: any) {
           setFormSubmitted={setFormSubmitted}
         />
       )}
-      <div className="p-5">
+      <div className="p-1">
         {buttonClicked && (
           <PostForm
             type={selectedType}

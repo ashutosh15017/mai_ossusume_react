@@ -9,14 +9,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
 import { useRouter } from "next/navigation";
 import NextLink from "next/link";
 import Avatar from "@mui/material/Avatar";
 
-function TopNav(props: { user: any }) {
-  const { user } = props;
-  const pages = ["profile", "users"];
+function TopNav(props: { user: any; pathname: any }) {
+  const { user, pathname } = props;
+  const pages = ["home", "profile", "users"];
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
@@ -50,26 +49,6 @@ function TopNav(props: { user: any }) {
             disableGutters
             sx={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
-            <SmartToyIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-            <NextLink href="/">
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  mr: 2,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                MaiOsusume
-              </Typography>
-            </NextLink>
-
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -101,7 +80,7 @@ function TopNav(props: { user: any }) {
               >
                 {pages.map((page) => (
                   <MenuItem key={page}>
-                    <NextLink href={page}>
+                    <NextLink href={page!="home"?page:"/"}>
                       <Typography component="div" textAlign="center">
                         {page}
                       </Typography>
@@ -110,29 +89,25 @@ function TopNav(props: { user: any }) {
                 ))}
               </Menu>
             </Box>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <SmartToyIcon sx={{ display: { xs: "flex", md: "none" } }} />
-              <NextLink href="/">
-                <Typography
-                  variant="h5"
-                  noWrap
-                  component="div"
-                  sx={{
-                    mr: 10,
-                    display: { xs: "flex", md: "none" },
-                    flexGrow: 1,
-                    fontFamily: "monospace",
-                    fontWeight: 700,
-                    letterSpacing: ".3rem",
-                    color: "inherit",
-                    textDecoration: "none",
-                    paddingInline: 1,
-                  }}
-                >
-                  MaiOsusume
-                </Typography>
-              </NextLink>
-            </Box>
+           
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{
+                
+                  display: { xs: "flex", md: "none" },
+                  flexGrow: 1,
+                  fontWeight: 400,
+                  letterSpacing: ".3rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  paddingInline: 1,
+                }}
+              >
+                {pathname.toUpperCase()}
+              </Typography>
+            
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
@@ -141,7 +116,7 @@ function TopNav(props: { user: any }) {
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   <MenuItem key={page}>
-                    <NextLink href={page}>
+                    <NextLink href={page!="home"?page:"/"}>
                       <Typography component="div" textAlign="center">
                         {page}
                       </Typography>

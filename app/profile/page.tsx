@@ -30,7 +30,7 @@ function Profile() {
       ) : (
         user && (
           <>
-            <TopNav user={user}/>
+            <TopNav user={user} pathname={"Profile"}/>
             <ProfilePage user={user} />
           </>
         )

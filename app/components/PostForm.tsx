@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ItemRating from "./ItemRating";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
@@ -142,9 +142,10 @@ function PostForm(props: {
                   >
                     Submit Post:{" "}
                     <Chip
+                    sx={{fontSize:12,mb:0.5}}
                       label={
                         type == "all"
-                          ? "NO TYPE SELECTED"
+                          ? "GENERAL"
                           : type.toLocaleUpperCase()
                       }
                     />

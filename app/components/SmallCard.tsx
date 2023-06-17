@@ -100,7 +100,7 @@ function SmallCard(props: {
                     color: "primary",
                     mb: 1,
                   }}
-                  label={type === "all" ? "NO TYPE" : type.toUpperCase()}
+                  label={type === "all" ? "GENERAL" : type.toUpperCase()}
                 />
 
                 {/* Another chip can go here  */}

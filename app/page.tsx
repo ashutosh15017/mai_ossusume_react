@@ -27,7 +27,7 @@ export default function Home() {
         <>
           {user ? (
             <>
-              <TopNav user={user} />
+              <TopNav user={user} pathname={"Home"}/>
               <HomePage user={user} />
             </>
           ) : (
